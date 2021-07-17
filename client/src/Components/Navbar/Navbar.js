@@ -12,6 +12,13 @@ const Navbar = ({ setQuery }) => {
           setQuery(search);
      };
 
+     const changeHandler = (value) => {
+          setSearch(value);
+          if (value === "") {
+               setQuery("");
+          }
+     };
+
      return (
           <header>
                <form className={styles.form} onSubmit={submitHandler}>
@@ -23,7 +30,7 @@ const Navbar = ({ setQuery }) => {
                          name="search"
                          id="search"
                          value={search}
-                         onChange={(e) => setSearch(e.target.value)}
+                         onChange={(e) => changeHandler(e.target.value)}
                     />
                     {search && (
                          <span onClick={() => setSearch("")}>
